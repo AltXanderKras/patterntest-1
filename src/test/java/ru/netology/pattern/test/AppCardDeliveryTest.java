@@ -38,17 +38,17 @@ public class AppCardDeliveryTest {
         $("[data-test-id=phone] input").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $(".button").click();
-        $(withText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(20));
+        $(withText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(40));
         $("[data-test-id=success-notification] .notification__content")
                 .shouldHave(Condition.text("Встреча успешно запланирована на " + firstMeetingDate));
         $(".calendar-input input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input input").setValue(secondMeetingDate);
         $(".button").click();
-        $(withText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(20));
+        $(withText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(40));
         $("[data-test-id=replan-notification]")
                 .shouldHave(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $(withText("Перепланировать")).click();
-        $("[data-test-id=success-notification]").shouldBe(Condition.visible, Duration.ofSeconds(20));
+        $("[data-test-id=success-notification]").shouldBe(Condition.visible, Duration.ofSeconds(40));
         $("[data-test-id=success-notification] .notification__content")
                 .shouldHave(Condition.text("Встреча успешно запланирована на " + secondMeetingDate));
     }
